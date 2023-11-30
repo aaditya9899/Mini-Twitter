@@ -1,0 +1,118 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Update the header background color and padding */
+.header {
+  background-color: #1da1f2;
+  color: white;
+  padding: 20px 0; /* Increase padding for more space */
+}
+
+/* Center the navigation links and give them space */
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style the header title */
+.header h1.logo {
+  margin: 0;
+  font-size: 24px;
+  color: #100f0f;
+}
+
+/* Style the navigation links */
+.header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center; /* Align vertically centered */
+}
+
+/* Update navigation links to cover the entire header */
+.header nav ul li {
+  margin-right: 40px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* Add more attractive styling to navigation links */
+.header nav ul li a {
+  text-decoration: none;
+  color: rgb(14, 13, 13);
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+  padding: 10px 0; /* Add padding for better touch/click interaction */
+  display: block; /* Make the links take the entire width */
+}
+
+.header nav ul li a:hover {
+  color: #35332a; /* Change color on hover */
+}
+
+.footer {
+  background-color: #f8f8f8;
+  color: #777;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.tweet-container {
+  max-width: 600px;
+  margin: 20px auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-info img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.tweet-content {
+  margin-bottom: 10px;
+}
+
+.tweet-content img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.interactions {
+  display: flex;
+}
+
+.interaction-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.interaction-button:last-child {
+  margin-right: 0;
+}

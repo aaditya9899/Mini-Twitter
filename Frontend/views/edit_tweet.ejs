@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Tweet - Twitter Clone</title>
+    <link rel="stylesheet" href="/styles/edit_tweet.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="logo">Mini Twitter</h1>
+        <nav>
+          <ul>
+            <% if (locals.user) { %>
+            <li><a href="/api/v1/home">Home</a></li>
+            <li><a href="/api/v1/user/dashboard">Profile</a></li>
+            <li><a href="/api/v1/user/logout">Logout</a></li>
+            <% } else { %>
+            <li><a href="/api/v1/user/signup">Signup</a></li>
+            <li><a href="/api/v1/user/login">Login</a></li>
+            <% } %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <h2>Edit Tweet</h2>
+      <form
+        id="edit-tweet-form"
+        action="/api/v1/tweet/<%= tweet.id %>"
+        method="POST"
+        data-tweet-id="<%= tweet.id %>"
+      >
+        <div class="form-group">
+          <textarea
+            name="content"
+            class="tweet-content"
+            placeholder="Edit your tweet..."
+          >
+<%= tweet.content %></textarea
+          >
+        </div>
+        <div class="form-group">
+          <% if (tweet.media) { %>
+          <img
+            src="/images/tweet-images/<%= tweet.media %>"
+            class="tweet-media"
+            alt="Tweet Media"
+          />
+          <% } %>
+        </div>
+        <button type="submit" class="btn-edit-tweet">Save Changes</button>
+      </form>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2023 Twitter Clone. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="/scripts/edit_tweet.js"></script>
+  </body>
+</html>

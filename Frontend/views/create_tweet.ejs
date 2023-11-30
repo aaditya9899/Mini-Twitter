@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Tweet - Twitter Clone</title>
+    <link rel="stylesheet" href="/styles/create_tweet.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="logo">Mini Twitter</h1>
+        <nav>
+          <ul>
+            <% if (locals.user) { %>
+            <li><a href="/api/v1/home">Home</a></li>
+            <li><a href="/api/v1/user/dashboard">Profile</a></li>
+            <li><a href="/api/v1/user/logout">Logout</a></li>
+            <% } else { %>
+            <li><a href="/api/v1/user/signup">Signup</a></li>
+            <li><a href="/api/v1/user/login">Login</a></li>
+            <% } %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <h2>Create Tweet</h2>
+      <form
+        action="/api/v1/tweet/create"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="form-group">
+          <textarea
+            name="content"
+            class="tweet-content"
+            placeholder="What's happening?"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <input type="file" name="media" accept="image/*" />
+        </div>
+        <button type="submit" class="btn-create-tweet">Create Tweet</button>
+      </form>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2023 Twitter Clone. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

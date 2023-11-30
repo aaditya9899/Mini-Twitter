@@ -1,0 +1,112 @@
+/* Reset and common styling */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+}
+
+/* Header styling */
+.header {
+  background-color: #1da1f2;
+  color: white;
+  padding: 20px 0;
+}
+
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1.logo {
+  margin: 0;
+  font-size: 24px;
+  color: #100f0f;
+}
+
+.header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.header nav ul li {
+  margin-right: 40px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.header nav ul li a {
+  text-decoration: none;
+  color: rgb(14, 13, 13);
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s ease;
+  padding: 10px 0;
+  display: block;
+}
+
+.header nav ul li a:hover {
+  color: #35332a;
+}
+
+/* Footer styling */
+.footer {
+  background-color: #f8f8f8;
+  color: #777;
+  padding: 10px 0;
+  text-align: center;
+}
+
+/* Container styling */
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+/* Tweet content textarea styling */
+.tweet-content {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
+/* Tweet media (image) styling */
+.tweet-media {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+/* Edit tweet button styling */
+.btn-edit-tweet {
+  background-color: #1da1f2;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-edit-tweet:hover {
+  background-color: #0f81bc;
+}

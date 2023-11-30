@@ -1,0 +1,226 @@
+body {
+  padding-top: 0; /* Adjust as needed */
+  margin: 0; /* Remove default margin */
+}
+
+.header {
+  background-color: #1da1f2;
+  color: white;
+  padding: 20px 0; /* Increase padding for more space */
+}
+
+/* Center the navigation links and give them space */
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Style the header title */
+.header h1.logo {
+  margin: 0;
+  font-size: 24px;
+  color: #100f0f;
+}
+
+/* Style the navigation links */
+.header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center; /* Align vertically centered */
+}
+
+/* Update navigation links to cover the entire header */
+.header nav ul li {
+  margin-right: 40px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* Add more attractive styling to navigation links */
+.header nav ul li a {
+  text-decoration: none;
+  color: rgb(14, 13, 13);
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+  padding: 10px 0; /* Add padding for better touch/click interaction */
+  display: block; /* Make the links take the entire width */
+}
+
+.header nav ul li a:hover {
+  color: #35332a; /* Change color on hover */
+}
+
+.footer {
+  background-color: #f8f8f8;
+  color: #777;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.profile-cover {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Adjust the height as needed */
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.cover-image {
+  /* margin-top: 10px; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile {
+  margin-top: 220px; /* Adjust the margin to position the profile below the cover image */
+}
+
+.profile-header {
+  background-color: #f5f5f5;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: -150px; /* Adjust to overlap with the cover image */
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: -50px auto 20px; /* Adjust margin to center profile image */
+  border: 3px solid white; /* Optional: add a border to the profile image */
+}
+
+.profile-username {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.profile-bio {
+  font-size: 16px;
+}
+
+.profile-location {
+  font-size: 14px;
+}
+
+.tweets {
+  margin-top: 20px;
+}
+
+.tweet-time {
+  font-size: 12px;
+  color: #170101;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* Adjust the .tweet class to have a relative position */
+.tweet {
+  position: relative;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.tweet-user {
+  display: flex;
+  align-items: center;
+}
+
+.tweet-user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.tweet-username {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.tweet-content {
+  margin-left: 50px;
+}
+
+.tweet-media {
+  margin-top: 10px;
+}
+
+/* ... your existing CSS rules ... */
+
+.tweet-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Add alignment for the menu */
+  margin-top: 10px;
+}
+
+.tweet-action-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: relative; /* Add relative positioning */
+}
+
+.action-icon {
+  font-size: 14px;
+  color: #333;
+  margin-right: 5px;
+}
+
+.action-count {
+  font-size: 12px;
+  color: #777;
+}
+
+.tweet-menu {
+  position: relative;
+}
+
+.tweet-menu-options {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%; /* Position the menu below the button */
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  min-width: 150px; /* Adjusted for a slightly wider menu */
+  padding: 8px; /* Add some padding for better appearance */
+}
+
+.tweet-action-button:hover .tweet-menu-options {
+  display: block;
+  opacity: 1;
+  transform: translateY(5px);
+}
+
+.tweet-menu-option {
+  padding: 8px;
+  text-align: left;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tweet-menu-option:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.show-options {
+  display: flex; /* Show when the class is applied */
+  flex-direction: column; /* Display options vertically */
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Clone - Home</title>
+    <link rel="stylesheet" href="/styles/home.css" />
+  </head>
+  <body data-current-user="<%= JSON.stringify(locals.currentUser) %>">
+    <header class="header">
+      <div class="container">
+        <h1 class="logo">Mini Twitter</h1>
+        <nav>
+          <ul>
+            <% if (locals.currentUser) { %>
+            <li><a href="/api/v1/tweet/create">Create Tweet</a></li>
+            <li><a href="/api/v1/home">Home</a></li>
+            <li><a href="/api/v1/user/dashboard">Profile</a></li>
+            <li><a href="/api/v1/user/logout">Logout</a></li>
+            <% } else { %>
+            <li><a href="/api/v1/user/signup">Signup</a></li>
+            <li><a href="/api/v1/user/login">Login</a></li>
+            <% } %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="tweets-section">
+        <ul class="tweets-list">
+          <% tweets.forEach(function(tweet) { %>
+          <li class="tweet">
+            <!-- Tweet user info -->
+            <div class="tweet-user">
+              <img
+                class="tweet-user-image"
+                src="<%=tweet.createdBy.profileImageUrl %>"
+                alt="User image"
+              />
+              <span class="tweet-username"><%=tweet.createdBy.username%></span>
+            </div>
+
+            <!-- Tweet date -->
+            <div class="tweet-date">
+              <p>
+                Posted on: <%= tweet.createdAt.toLocaleString("en-US", {
+                weekday: "long", year: "numeric", month: "long", day: "numeric"
+                }) %>
+              </p>
+            </div>
+
+            <!-- Tweet content -->
+            <div class="tweet-content">
+              <p><%= tweet.content %></p>
+              <% if (tweet.media) { %>
+              <img
+                src="/images/tweet-images/<%= tweet.media %>"
+                alt="Tweet Media"
+              />
+              <% } %>
+            </div>
+
+            <!-- Tweet actions -->
+            <div class="tweet-actions">
+              <a href="#">Like</a>
+              <a href="#">Comment</a>
+              <a href="#">Retweet</a>
+            </div>
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+      <div class="users-section">
+        <h2>Users</h2>
+        <ul class="users-list">
+          <% users.forEach(function(user) { %> <% if
+          (!(user.id===currentUser.id)) { %>
+          <li class="user">
+            <img
+              class="user-profile-image"
+              src="<%= user.profileImageUrl %>"
+              alt="User profile image"
+            />
+            <a href="/api/v1/user/<%= user.id %>" class="user-username">
+              <!-- Use user.username as the button text -->
+              <%= user.username %>
+            </a>
+            <button class="follow-button" data-user-id="<%= user.id %>">
+              <%= currentUser.following.includes(user.id) ? 'Following' :
+              'Follow' %>
+            </button>
+          </li>
+          <% } %> <% }); %>
+        </ul>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2023 Twitter Clone. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="/scripts/follow.js"></script>
+  </body>
+</html>

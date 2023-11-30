@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/get_tweet.css" />
+    <title>Single Tweet</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="logo">Mini Twitter</h1>
+        <nav>
+          <ul>
+            <% if (locals.user) { %>
+            <li><a href="/api/v1/user/create">Create Tweet</a></li>
+            <li><a href="/api/v1/home">Home</a></li>
+            <li><a href="/api/v1/user/dashboard">Profile</a></li>
+            <li><a href="/api/v1/user/logout">Logout</a></li>
+            <% } else { %>
+            <li><a href="/api/v1/user/signup">Signup</a></li>
+            <li><a href="/api/v1/user/login">Login</a></li>
+            <% } %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="tweet-container">
+      <div class="user-info">
+        <img src="<%= user.profileImageUrl %>" alt="Profile Image" />
+        <span class="username"><%= user.username %></span>
+      </div>
+      <div class="tweet-content">
+        <p><%= tweet.content %></p>
+        <% if (tweet.media) { %>
+        <img src="/images/tweet-images/<%= tweet.media %>" alt="Tweet Media" />
+        <% } %>
+      </div>
+      <div class="interactions">
+        <button class="interaction-button">Likes (<%= tweet.likes %>)</button>
+        <button class="interaction-button">
+          Retweets (<%= tweet.Retweets %>)
+        </button>
+        <button class="interaction-button">
+          Comments (<%= tweet.comments.length %>)
+        </button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2023 Twitter Clone. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

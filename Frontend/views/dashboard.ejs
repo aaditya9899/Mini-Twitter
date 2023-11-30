@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Clone - User Profile</title>
+    <link rel="stylesheet" href="/styles/dashboard.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="logo">Mini Twitter</h1>
+        <nav>
+          <ul>
+            <% if (locals.user) { %>
+            <li><a href="/api/v1/tweet/create">Create Tweet</a></li>
+            <li><a href="/api/v1/home">Home</a></li>
+            <li><a href="/api/v1/user/dashboard">Profile</a></li>
+            <li><a href="/api/v1/user/logout">Logout</a></li>
+            <% } else { %>
+            <li><a href="/api/v1/user/signup">Signup</a></li>
+            <li><a href="/api/v1/user/login">Login</a></li>
+            <% } %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="container">
+      <div class="profile-cover">
+        <img
+          class="cover-image"
+          src="<%= user.coverImageUrl %>"
+          alt="Cover image"
+        />
+      </div>
+      <div class="profile">
+        <div class="profile-header">
+          <img
+            class="profile-image"
+            src="<%= user.profileImageUrl %>"
+            alt="Profile image"
+          />
+          <h1 class="profile-username"><%= user.username %></h1>
+          <p class="profile-bio">This is a bio for the user.</p>
+          <p class="profile-location">The user lives in San Francisco, CA.</p>
+        </div>
+        <h2>Tweets</h2>
+        <ul class="tweets">
+          <% tweets.forEach(function(tweet) { %>
+          <li class="tweet">
+            <div class="tweet-user">
+              <img
+                class="tweet-user-image"
+                src="<%= user.profileImageUrl %>"
+                alt="User image"
+              />
+              <span class="tweet-username"><%= user.username %></span>
+              <p class="tweet-time">
+                <%= tweet.createdAt.toLocaleString("en-US", { weekday: "long",
+                year: "numeric", month: "long", day: "numeric", }) %>
+              </p>
+            </div>
+            <div class="tweet-content">
+              <p><%= tweet.content %></p>
+              <% if (tweet.media) { %>
+              <div class="tweet-media">
+                <img
+                  src="/images/tweet-images/<%= tweet.media %>"
+                  alt="Media"
+                />
+              </div>
+              <% } %>
+            </div>
+            <div class="tweet-actions">
+              <button class="tweet-action-button" type="button">
+                <span class="action-icon">Like</span
+                ><span class="action-count"><%= tweet.likes %></span>
+              </button>
+              <button class="tweet-action-button" type="button">
+                <span class="action-icon">Retweet</span
+                ><span class="action-count"><%= tweet.Retweets %></span>
+              </button>
+              <!-- ... (previous HTML code) ... -->
+              <div class="tweet-menu">
+                <button class="tweet-action-button menu-button" type="button">
+                  <span class="action-icon">Menu</span>
+                </button>
+                <div class="tweet-menu-options">
+                  <button
+                    class="tweet-menu-option edit-option"
+                    type="button"
+                    data-tweet-id="<%= tweet.id %>"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    class="tweet-menu-option delete-option"
+                    type="button"
+                    data-tweet-id="<%= tweet.id %>"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+              <!-- ... (rest of the HTML code) ... -->
+            </div>
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2023 Twitter Clone. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="/scripts/edit_delete_tweet.js"></script>
+  </body>
+</html>
