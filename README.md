@@ -1,23 +1,29 @@
-# Mini-Twitter
+# Mini-Twitter 
 
-Make sure that no other application is running on port 5000
+## Description
+Mini-Twitter is a simplified version of Twitter where users can create tweets, follow each other, and read each other's tweets. 
 
 ## Installation
-```npm
-npm install
-```
+Please ensure MongoDB is installed as data will be stored in the local database. To install the application, use the following command:
 
-Running the application
-```npm
-command: npm run dev
-```
-Hit the route-``` localhost:5000/api/v1/user/signup ``` to create a new user
+`npm install`
 
-<p>The application is not deployed so data will be stored in the local database, so please make sure mongodb is installed.<br>
-<br>Initially the database will be empty. So please signup as the users create tweets follow each other and read each others tweets.</p>
+## Running the Application
+After installation, run the application using the following command:
+`npm run dev`
+
+Then, navigate to `localhost:5000/api/v1/user/signup` to create a new user. 
+
+## Usage
+Initially, the database will be empty. Users are advised to sign up, create tweets, follow each other and read each other's tweets. 
+
+Users can edit and delete their tweets by visiting their profile page, clicking the menu option, and choosing the appropriate action. 
 
 ## Updates
+Users can now visit other people's profiles as well. 
 
-Users can edit and delete their tweets by visiting their profile page and clicking the menu option and choosing appropriate action
+## Note
+Please ensure no other application is running on port 5000 while running this application. 
 
-You can now visit other people's profile as well
+
+
